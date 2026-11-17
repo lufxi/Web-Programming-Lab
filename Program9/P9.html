@@ -1,0 +1,32 @@
+<html>
+      <head>
+            <title>Program 9</title>
+            <style>
+                   img {
+                          margin-left : 600px;
+                       }
+                     p {
+                          text-align : 600px;
+                       }
+            </style>
+      </head>
+      <body>
+            <img src = "car1.jpg" id="i1" width="500" height="500" onmouseover="one()" onmouseout="two()" />
+            <p id = "p1">First
+            </p1>
+            <script>
+                    function one()
+                    {
+                       document.getElementById("i1").src = "car2.jpg";
+                       document.getElementById("p1").innerHTML = "onmouseover";
+                       document.getElementById("p1").style.color = "blue";
+                    }
+                    function two()
+                    {
+                       document.getElementById("i1").src = "car3.jpg";
+                       document.getElementById("p1").innerHTML = "onmouseout";
+                       document.getElementById("p1").style.color = "red";
+                    }
+            </script>
+      </body>
+</html>
