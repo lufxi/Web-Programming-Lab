@@ -21,6 +21,21 @@
                   <input type="tel" id = "phone" placeholder="Enter Mobile number"><br><br>
                   <label>Email : </label>
                   <input type="text" id = "email" placeholder="Enter your email"><br><br>
+
+                  <label>Gender</label>
+                  <input type="radio" id="gender" required><label>Male</label>
+                  <input type="radio" id="gender" required><label>Female</label>
+                  <input type="radio" id="gender" required><label>Other</label>
+                  <br><br>
+                  <label>Languages Known : </label>
+                  <input type="checkbox" id = "lang" value="Malayalam">Malayalam
+                  <input type="checkbox" id = "lang" value="English">English
+                  <input type="checkbox" id = "lang" value="Hindi">Hindi
+                  <input type="checkbox" id = "lang" value="Tamil">Tamil<br><br>
+                  <label>Password : </label>
+                  <input type="password" id="pwd" placeholder="Enter Password"><br><br>
+                  <label>Confirm Password : </label>
+                  <input type="password" id="cpwd" placeholder="Confirm Password"><br><br>
                   <button type="submit">Submit</button>
             </form>
             <script>
@@ -29,6 +44,10 @@
                        var fname = document.form.fname.value.trim();
                        var phone = document.form.phone.value.trim();
                        var email = document.form.email.value.trim();
+                       var gender = document.querySelector('input[id="gender"]:checked');
+                       var lang = document.querySelector('input[id="lang"]:checked');
+                       var pwd = document.form.pwd.value.trim();
+                       var cpwd = document.form.cpwd.value.trim();
                     
                        if(fname == "")
                        {
@@ -66,6 +85,33 @@
                           document.form.email.focus();
                           return false;
                        }
+                       if(gender == null)
+                       {
+                          alert("Select your Gender");
+                          document.querySelector('input[name="gender"]').focus();
+                          return false;
+                       }
+                       if(lang.length == 0)
+                       {
+                          alert("Select atleast one language");
+                          return false;
+                       }
+                       if(pwd == "")
+                       {
+                          alert("Enter Password");
+                          document.form.pwd.focus();
+                          return false;
+                       }
+                       else if()
+                       {
+                       }
+                       if(cpwd == "")
+                       {
+                       }
+                       else if()
+                       {
+                       }
+                       
                        alert("Form Submitted Successfully");
                        return true;
                     }
