@@ -1,120 +1,141 @@
 <html>
-      <head>
-            <title>Form Validation</title>
-      </head>
-      <body>
-            <h1>FORM VALIDATION</h1>
-            <form name = "form" action = "" onsubmit = "return validateForm()">
-                  <label>Name : </label>
-                  <select name = "init" id = "init">
-                          <option>Mr.</option>
-                          <option>Mrs.</option>
-                          <option>Ms.</option>
-                  </select>
-                  <input type="text" id = "fname" placeholder="Enter your Name"><br><br>
-                  <label>Phone : </label>
-                  <select name = "num" id = "num">
-                          <option>+91</option>
-                          <option>+966</option>
-                          <option>+971</option>
-                  </select>
-                  <input type="tel" id = "phone" placeholder="Enter Mobile number"><br><br>
-                  <label>Email : </label>
-                  <input type="text" id = "email" placeholder="Enter your email"><br><br>
+    <head>
+        <title>Form Validation</title>
+    </head>
+    <body>
+        <h1>FORM VALIDATION</h1>
+        <form name="form" action="" onsubmit="return validateForm()">
+            <label>Name : </label>
+            <select name="init" id="init">
+                <option>Mr.</option>
+                <option>Mrs.</option>
+                <option>Ms.</option>
+            </select>
+            <input type="text" id="fname" name="fname" placeholder="Enter your Name"><br><br>
 
-                  <label>Gender</label>
-                  <input type="radio" id="gender" required><label>Male</label>
-                  <input type="radio" id="gender" required><label>Female</label>
-                  <input type="radio" id="gender" required><label>Other</label>
-                  <br><br>
-                  <label>Languages Known : </label>
-                  <input type="checkbox" id = "lang" value="Malayalam">Malayalam
-                  <input type="checkbox" id = "lang" value="English">English
-                  <input type="checkbox" id = "lang" value="Hindi">Hindi
-                  <input type="checkbox" id = "lang" value="Tamil">Tamil<br><br>
-                  <label>Password : </label>
-                  <input type="password" id="pwd" placeholder="Enter Password"><br><br>
-                  <label>Confirm Password : </label>
-                  <input type="password" id="cpwd" placeholder="Confirm Password"><br><br>
-                  <button type="submit">Submit</button>
-            </form>
-            <script>
-                    function validateForm()
-                    {
-                       var fname = document.form.fname.value.trim();
-                       var phone = document.form.phone.value.trim();
-                       var email = document.form.email.value.trim();
-                       var gender = document.querySelector('input[id="gender"]:checked');
-                       var lang = document.querySelector('input[id="lang"]:checked');
-                       var pwd = document.form.pwd.value.trim();
-                       var cpwd = document.form.cpwd.value.trim();
-                    
-                       if(fname == "")
-                       {
-                          alert("Enter your Name");
-                          document.form.fname.focus();
-                          return false;
-                       }
-                       else if(!/^[a-zA-Z]+$/.test(fname))
-                       {  
-                          alert("Enter valid Name");
-                          document.form.fname.focus();
-                          return false;
-                       }
-                       if(phone == "")
-                       {
-                          alert("Enter Mobile Number");
-                          document.form.phone.focus();
-                          return false;
-                       }
-                       else if(!/^[0-9]{10}$/.test(phone))
-                       {
-                          alert("Enter a valid 10-digit Mobile Number");
-                          document.form.phone.focus();
-                          return false;
-                       }
-                       if(email == "")
-                       {
-                          alert("Enter email");
-                          document.form.email.focus();
-                          return false;
-                       }
-                       else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
-                       {
-                          alert("Enter a valid email");
-                          document.form.email.focus();
-                          return false;
-                       }
-                       if(gender == null)
-                       {
-                          alert("Select your Gender");
-                          document.querySelector('input[name="gender"]').focus();
-                          return false;
-                       }
-                       if(lang.length == 0)
-                       {
-                          alert("Select atleast one language");
-                          return false;
-                       }
-                       if(pwd == "")
-                       {
-                          alert("Enter Password");
-                          document.form.pwd.focus();
-                          return false;
-                       }
-                       else if()
-                       {
-                       }
-                       if(cpwd == "")
-                       {
-                       }
-                       else if()
-                       {
-                       }
-                       
-                       alert("Form Submitted Successfully");
-                       return true;
-                    }
-            </script>
-      </body>
+            <label>Phone : </label>
+            <select name="num" id="num">
+                <option>+91</option>
+                <option>+966</option>
+                <option>+971</option>
+            </select>
+            <input type="tel" id="phone" name="phone" placeholder="Enter Mobile number"><br><br>
+
+            <label>Email : </label>
+            <input type="text" id="email" name="email" placeholder="Enter your email"><br><br>
+
+            <label>Gender</label>
+            <input type="radio" name="gender" value="Male"><label>Male</label>
+            <input type="radio" name="gender" value="Female"><label>Female</label>
+            <input type="radio" name="gender" value="Other"><label>Other</label>
+            <br><br>
+
+            <label>Languages Known : </label>
+            <input type="checkbox" name="lang" value="Malayalam">Malayalam
+            <input type="checkbox" name="lang" value="English">English
+            <input type="checkbox" name="lang" value="Hindi">Hindi
+            <input type="checkbox" name="lang" value="Tamil">Tamil<br><br>
+
+            <label>Password : </label>
+            <input type="password" id="pwd" name="pwd" placeholder="Enter Password"><br><br>
+
+            <label>Confirm Password : </label>
+            <input type="password" id="cpwd" name="cpwd" placeholder="Confirm Password"><br><br>
+
+            <button type="submit">Submit</button>
+        </form>
+        <script>
+            function validateForm()
+            {
+                var fname = document.form.fname.value.trim();
+                var phone = document.form.phone.value.trim();
+                var email = document.form.email.value.trim();
+                var gender = document.querySelector('input[name="gender"]:checked');
+                var lang = document.querySelectorAll('input[name="lang"]:checked');
+                var pwd = document.form.pwd.value;
+                var cpwd = document.form.cpwd.value;
+
+                if(fname == "")
+                {
+                    alert("Enter your Name");
+                    document.form.fname.focus();
+                    return false;
+                }
+                else if(!/^[a-zA-Z ]+$/.test(fname))
+                {
+                    alert("Enter valid Name");
+                    document.form.fname.focus();
+                    return false;
+                }
+
+                if(phone == "")
+                {
+                    alert("Enter Mobile Number");
+                    document.form.phone.focus();
+                    return false;
+                }
+                else if(!/^[0-9]{10}$/.test(phone))
+                {
+                    alert("Enter a valid 10-digit Mobile Number");
+                    document.form.phone.focus();
+                    return false;
+                }
+
+                if(email == "")
+                {
+                    alert("Enter email");
+                    document.form.email.focus();
+                    return false;
+                }
+                else if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email))
+                {
+                    alert("Enter a valid email");
+                    document.form.email.focus();
+                    return false;
+                }
+
+                if(gender == null)
+                {
+                    alert("Select your Gender");
+                    document.querySelector('input[name="gender"]').focus();
+                    return false;
+                }
+
+                if(lang.length == 0)
+                {
+                    alert("Select atleast one language");
+                    return false;
+                }
+
+                if(pwd == "")
+                {
+                    alert("Enter Password");
+                    document.form.pwd.focus();
+                    return false;
+                }
+                else if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/.test(pwd))
+                {
+                    alert("Password must be at least 8 characters and include an uppercase letter, a lowercase letter, a number and a special character");
+                    document.form.pwd.focus();
+                    return false;
+                }
+
+                if(cpwd == "")
+                {
+                    alert("Confirm your Password");
+                    document.form.cpwd.focus();
+                    return false;
+                }
+                else if(pwd !== cpwd)
+                {
+                    alert("Passwords do not match");
+                    document.form.cpwd.focus();
+                    return false;
+                }
+
+                alert("Form Submitted Successfully");
+                return true;
+            }
+        </script>
+    </body>
 </html>
